@@ -1,12 +1,19 @@
 #include <iostream>
-#include <algorithm>
+#include <vector>
 using namespace std;
+
+struct Person
+{
+    string name;
+    string surname;
+    int age;
+};
+
+vector<Person> GetPopulation();
 
 int main()
 {
-    string word = "babax";
-    sort(begin(word), end(word));
-    cout << word << " " << count(begin(word), end(word), 'a');
+    vector<Person> people = GetPopulation();
 
     return 0;
 }
