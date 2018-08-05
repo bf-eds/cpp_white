@@ -2,18 +2,25 @@
 #include <vector>
 using namespace std;
 
-struct Person
+void PrintVector(const vector<string> &v)
 {
-    string name;
-    string surname;
-    int age;
-};
-
-vector<Person> GetPopulation();
+    for (string s : v)
+    {
+        cout << s << endl;
+    }
+}
 
 int main()
 {
-    vector<Person> people = GetPopulation();
+    int n = 10;
 
+    vector<int> v(n);
+
+    cout << v.size() << endl;
+
+    v.resize(0);
+
+
+    cout << v.size() << endl;
     return 0;
 }
