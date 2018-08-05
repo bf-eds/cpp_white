@@ -17,3 +17,6 @@ add_executable(week_2_assignment_6 week_2/assignment_6/main.cpp week_2/assignmen
 add_executable(week_2_assignment_7 week_2/assignment_7/main.cpp week_2/assignment_7/reversed.cpp)
 add_executable(week_2_assignment_8 week_2/assignment_8/main.cpp week_2/assignment_8/temperature.cpp)
 add_executable(week_2_assignment_9 week_2/assignment_9/main.cpp)
+add_executable(week_2_assignment_10 week_2/assignment_10/main.cpp)
+add_executable(week_2_assignment_11 week_2/assignment_11/main.cpp)
+add_executable(week_2_assignment_12 week_2/assignment_12/main.cpp)

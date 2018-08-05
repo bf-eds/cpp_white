@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 void PrintVector(const vector<string> &v)
@@ -12,6 +13,9 @@ void PrintVector(const vector<string> &v)
 
 int main()
 {
+    map<int, char> m;
+    m.erase(5);
+    
     int n = 10;
 
     vector<int> v(n);
