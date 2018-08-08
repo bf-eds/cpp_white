@@ -22,7 +22,7 @@ int Factorial(int a)
     }
 }
 
-int main(void)
+int main()
 {
     int x;
 

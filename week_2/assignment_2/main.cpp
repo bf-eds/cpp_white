@@ -8,7 +8,7 @@ using namespace std;
 
 bool isPalindrom(string str);
 
-int main(void)
+int main()
 {
     string str;
     cin >> str;

@@ -25,7 +25,7 @@ void PrintStringVector(vector<string> str)
     cout << endl;
 }
 
-int main(void)
+int main()
 {
     vector<string> v1 = {"abacaba", "aba"};
     vector<string> v2 = {"weew", "bro", "code"};

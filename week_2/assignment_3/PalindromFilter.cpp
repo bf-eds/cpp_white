@@ -23,7 +23,7 @@ vector<string> PalindromFilter(vector<string> words, int minLength)
 {
     vector<string> filter;
 
-    for (auto word : words)
+    for (const auto &word : words)
     {
         if (IsPalindrom2(word) && (word.length() >= minLength))
         {

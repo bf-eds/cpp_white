@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main(void)
+int main()
 {
     int n;
     vector<int> bits;

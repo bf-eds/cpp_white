@@ -13,18 +13,16 @@ void PrintVector(const vector<string> &v)
 
 int main()
 {
-    map<int, char> m;
-    m.erase(5);
-    
-    int n = 10;
+    map<string, string> m;
 
-    vector<int> v(n);
+//    cout << m["one"] << endl;
 
-    cout << v.size() << endl;
+    if (m["one"] == "")
+    {
+        cout << "empty\n";
+    }
 
-    v.resize(0);
+    cout << m.count("one");
 
-
-    cout << v.size() << endl;
     return 0;
 }
