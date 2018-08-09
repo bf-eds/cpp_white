@@ -5,13 +5,13 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main()
 {
     vector<map<string, vector<string>>> buses;
+
     int opsNum = 0;
     cin >> opsNum;
     int i = 0;
@@ -40,7 +40,30 @@ int main()
         }
         else if (op == "BUSES_FOR_STOP")
         {
+            string stop;
+            cin >> stop;
 
+            bool exist = false;
+
+            for (const auto &bus : buses)
+            {
+                for (const auto &existStop : bus.begin()->second)
+                {
+                    if (existStop == stop)
+                    {
+                        exist = true;
+                        cout << bus.begin()->first << " ";
+                        break;
+                    }
+                }
+            }
+
+            if (!exist)
+            {
+                cout << "No stop";
+            }
+
+            cout << endl;
         }
         else if (op == "STOPS_FOR_BUS")
         {
@@ -51,9 +74,21 @@ int main()
             vector<map<string, vector<string>>> busesAsc = buses;
             sort(busesAsc.begin(), busesAsc.end());
 
-            for (auto bus : busesAsc)
+            if (buses.empty())
             {
-                cout << "Bus " << bus.begin().
+                cout << "No buses" << endl;
+            }
+
+            for (const auto &bus : busesAsc)
+            {
+                cout << "Bus " << bus.begin()->first << ": ";
+
+                for (const auto &stop : bus.begin()->second)
+                {
+                    cout << stop << " ";
+                }
+
+                cout << endl;
             }
         }
     }
