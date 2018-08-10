@@ -67,7 +67,43 @@ int main()
         }
         else if (op == "STOPS_FOR_BUS")
         {
+            string bus;
+            cin >> bus;
 
+            vector<string> stops;
+
+            for (const auto &item : buses)
+            {
+                if (item.begin()->first == bus)
+                {
+                    stops = item.begin()->second;
+                    break;
+                }
+            }
+
+            if (stops.empty())
+            {
+                cout << "No bus\n";
+            }
+
+            for (const auto &stop : stops)
+            {
+                cout << "Stop " << stop << ": ";
+
+                for (const auto &busItem : buses)
+                {
+                    for (const auto &existStop : busItem.begin()->second)
+                    {
+                        if ((existStop == stop) && (busItem.begin()->first != bus))
+                        {
+                            cout << busItem.begin()->first << " ";
+                            break;
+                        }
+                    }
+                }
+
+
+            }
         }
         else if (op == "ALL_BUSES")
         {
