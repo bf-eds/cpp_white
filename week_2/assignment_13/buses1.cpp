@@ -90,6 +90,8 @@ int main()
             {
                 cout << "Stop " << stop << ": ";
 
+                bool only = true;
+
                 for (const auto &busItem : buses)
                 {
                     for (const auto &existStop : busItem.begin()->second)
@@ -97,12 +99,18 @@ int main()
                         if ((existStop == stop) && (busItem.begin()->first != bus))
                         {
                             cout << busItem.begin()->first << " ";
+                            only = false;
                             break;
                         }
                     }
                 }
 
+                if (only)
+                {
+                    cout << "no interchange";
+                }
 
+                cout << endl;
             }
         }
         else if (op == "ALL_BUSES")

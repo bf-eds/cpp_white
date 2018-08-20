@@ -11,18 +11,26 @@ void PrintVector(const vector<string> &v)
     }
 }
 
+map<string, bool> BuildReversedMap(const map<bool, string> &m)
+{
+    map<string, bool> result;
+    for (const auto &item : m)
+    {
+        result[item.second] = item.first;
+    }
+    return result;
+}
+
 int main()
 {
-    map<string, string> m;
-
-//    cout << m["one"] << endl;
-
-    if (m["one"] == "")
-    {
-        cout << "empty\n";
-    }
-
-    cout << m.count("one");
-
+    map<int, string> m = {{1, "odd"},
+                          {2, "even"},
+                          {1, "one"}};
+    m[2] = "two";
+    m.erase(1);
+    m[3] = "three";
+    m.erase(4);
+    m[5] = "five";
+    cout << m.size();
     return 0;
 }
