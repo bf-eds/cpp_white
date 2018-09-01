@@ -6,9 +6,24 @@
 
 using namespace std;
 
+class Numb
+{
+public:
+    Numb(int a, int b)
+    {
+        x = a;
+        y = b;
+    }
+
+private:
+    int x;
+    int y;
+};
+
 int main()
 {
-    /* TODO: fix */
-    cout << "Hello from test1!" << std::endl;
+//    Numb numb(1, 2);
+    Numb numb2;
+    cout << numb2.x << "" << numb2.y << endl;
     return 0;
 }
