@@ -4,8 +4,7 @@
 
 #include <string>
 #include <map>
-#include <algorithm>
-#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -26,32 +25,23 @@ public:
 
     string GetFullName(int year)
     {
-
-    }
-
-    string GetFullNameWithHistory(int year)
-    {
-        // получить все имена и фамилии по состоянию на конец года year
         // получить имя и фамилию по состоянию на конец года year
 
-        vector <string> first;
-        vector <string> last;
-
-        string firstCurr;
-        string lastCurr;
+        string first;
+        string last;
 
         for (auto item : records)
         {
             if (item.first <= year)
             {
-                if (!item.second.firstName.empty() && (first.empty() || (item.second.firstName != first.back())))
+                if (!item.second.firstName.empty())
                 {
-                    first.push_back(item.second.firstName);
+                    first = item.second.firstName;
                 }
 
-                if (!item.second.lastName.empty() && (last.empty() || item.second.lastName != last.back()))
+                if (!item.second.lastName.empty())
                 {
-                    last.push_back(item.second.lastName);
+                    last = item.second.lastName;
                 }
             }
             else
@@ -84,6 +74,67 @@ public:
 
         return result;
 
+    }
+
+    string GetFullNameWithHistory(int year)
+    {
+        // получить все имена и фамилии по состоянию на конец года year
+        // получить имя и фамилию по состоянию на конец года year
+
+        vector<string> first;
+        vector<string> last;
+
+        for (auto item : records)
+        {
+            if (item.first <= year)
+            {
+                if (!item.second.firstName.empty() && (first.empty() || (item.second.firstName != first.back())))
+                {
+                    first.push_back(item.second.firstName);
+                }
+
+                if (!item.second.lastName.empty() && (last.empty() || item.second.lastName != last.back()))
+                {
+                    last.push_back(item.second.lastName);
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        string result;
+
+        if (first.empty())
+        {
+            if (last.empty())
+            {
+                result = "Incognito";
+            }
+            else
+            {
+                result += GetNames(last);
+                result += " with unknown first name";
+            }
+        }
+        else
+        {
+            if (last.empty())
+            {
+                result += GetNames(first);
+                result += " with unknown last name";
+            }
+            else
+            {
+                result += GetNames(first);
+                result += " ";
+                result += GetNames(last);
+            }
+
+        }
+
+        return result;
 
     }
 
@@ -94,4 +145,30 @@ private:
         string lastName;
     };
     map<int, Name> records;
+
+    string GetNames(const vector<string> &name)
+    {
+        string result;
+
+        result += name.back();
+
+        if (name.size() > 1)
+        {
+            result += " (";
+            result += name[name.size() - 2];
+        }
+
+        for (int i = name.size() - 3; i >= 0; i--)
+        {
+            result += ", ";
+            result += name[i];
+        }
+
+        if (name.size() > 1)
+        {
+            result += ")";
+        }
+
+        return result;
+    }
 };
