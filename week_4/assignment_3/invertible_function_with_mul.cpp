@@ -3,16 +3,18 @@
 //
 
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
-//struct Image {
+//struct Image
+//{
 //    double quality;
 //    double freshness;
 //    double rating;
 //};
 //
-//struct Params {
+//struct Params
+//{
 //    double a;
 //    double b;
 //    double c;
@@ -33,9 +35,17 @@ public:
         {
             return source_value + value;
         }
-        else
+        else if (operation == '-')
         {
             return source_value - value;
+        }
+        else if (operation == '*')
+        {
+            return source_value * value;
+        }
+        else
+        {
+            return source_value / value;
         }
     }
 
@@ -45,9 +55,17 @@ public:
         {
             operation = '-';
         }
-        else
+        else if (operation == '-')
         {
             operation = '+';
+        }
+        else if (operation == '*')
+        {
+            operation = '/';
+        }
+        else
+        {
+            operation = '*';
         }
     }
 
@@ -79,7 +97,7 @@ public:
         {
             part.Invert();
         }
-//        reverse(begin(parts), end(parts));
+        reverse(begin(parts), end(parts));
     }
 
 private:
@@ -89,8 +107,10 @@ private:
 Function MakeWeightFunction(const Params &params, const Image &image)
 {
     Function function;
-    function.AddPart('-', image.freshness * params.a + params.b);
+    function.AddPart('*', params.a);
+    function.AddPart('-', image.freshness * params.b);
     function.AddPart('+', image.rating * params.c);
+
     return function;
 }
 

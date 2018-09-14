@@ -38,4 +38,5 @@ add_executable(week_3_assignment_6 week_3/assignment_6/reversible_string.cpp wee
 add_executable(week_3_assignment_7 week_3/assignment_7/main.cpp)
 add_executable(week_3_assignment_8 week_3/assignment_8/main.cpp)
 add_executable(week_4_assignment_1 week_4/assignment_1/main.cpp week_4/assignment_1/structures.cpp)
-add_executable(week_4_assignment_2 week_4/assignment_2/main.cpp week_4/assignment_2/invertible_function.cpp)
+add_executable(week_4_assignment_2 week_4/assignment_2/main.cpp)
+add_executable(week_4_assignment_3 week_4/assignment_3/main.cpp)
