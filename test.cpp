@@ -9,11 +9,24 @@ using namespace std;
 
 int main()
 {
-    cout << "asdf" << endl;
-    ifstream input{"text.txt"};
-    string line;
-    getline(input, line);
-    cout << line << endl;
+    ifstream input{"data.txt"};
+    ofstream os;
+    string year;
+    string month;
+    string day;
+
+    if (input.open)
+    {
+        getline(input, year, '-');
+        getline(input, month, '-');
+        getline(input, day);
+    }
+    else
+    {
+        cout << "Error while open file" << endl;
+    }
+
+    cout << year << ' ' << month << ' ' << day << endl;
 
     return 0;
 }
