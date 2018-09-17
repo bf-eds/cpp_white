@@ -3,30 +3,25 @@
 //
 
 #include <iostream>
-#include<fstream>
 
 using namespace std;
 
+struct A
+{
+    int a;
+};
+
+A c;
+
 int main()
 {
-    ifstream input{"data.txt"};
-    ofstream os;
-    string year;
-    string month;
-    string day;
+    A a;
+    a.a = 10;
+    cout << a.a << endl;
 
-    if (input.open)
-    {
-        getline(input, year, '-');
-        getline(input, month, '-');
-        getline(input, day);
-    }
-    else
-    {
-        cout << "Error while open file" << endl;
-    }
+    A b;
+    cout << b.a << endl;
 
-    cout << year << ' ' << month << ' ' << day << endl;
-
+    cout << c.a << endl;
     return 0;
 }
